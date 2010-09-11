@@ -1,4 +1,4 @@
-package reptile.gui;
+package reptile.gui.widget;
 
 import javax.swing.JTree;
 

@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -16,11 +17,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
+
+import reptile.gui.widget.MapComponent;
 
 /**
  * The main class of the Reptile Map Editor
@@ -61,6 +65,9 @@ public class ReptileEditor extends JFrame {
 				   middlePanel,
 				   rightPanel,
 				   footerPanel;
+	
+	private JTabbedPane pallettePane;
+	private JDesktopPane editorPane;
 	
 	/**
 	 * Constructor for objects of type ReptileEditor
@@ -148,9 +155,10 @@ public class ReptileEditor extends JFrame {
 		
 		//Add panels
 		toolbarPanel = new JPanel();
-		toolbarPanel.setBorder(BorderFactory.createTitledBorder((Border)(new LineBorder(Color.RED, 1, true)), "Tools"));
+		toolbarPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		toolbarPanel.setPreferredSize(new Dimension(300, 40));
 		add(toolbarPanel);
+		
 		JPanel splitPanePanel = new JPanel();
 		splitPanePanel.setLayout(new BoxLayout(splitPanePanel, BoxLayout.X_AXIS));
 		add(splitPanePanel);
