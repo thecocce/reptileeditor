@@ -2,6 +2,7 @@ package reptile.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -171,6 +172,7 @@ public class ReptileEditor extends JFrame {
 		rightPanel = new JPanel();
 		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
 		JSplitPane outerSplitPane = new JSplitPane();
+
 		outerSplitPane.setBorder(null);
 		outerSplitPane.setOneTouchExpandable(true);
 		splitPanePanel.add(outerSplitPane);
