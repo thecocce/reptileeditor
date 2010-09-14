@@ -136,7 +136,7 @@ public class ReptileEditor extends JFrame {
 		mapPalette = new MapPalette();
 		mapPaletteView = new DefaultDockable(mapPalette, "Palette");
 		objectInspector = new ObjectInspector();
-		objectInspectorView = new DefaultDockable(objectInspector, "Object Explorer");
+		objectInspectorView = new DefaultDockable(objectInspector, "Object Inspector");
 		cellInspector = new CellInspector();
 		cellInspectorView = new DefaultDockable(cellInspector, "Cell Inspector");
 		historyExplorer = new HistoryExplorer();
@@ -144,16 +144,16 @@ public class ReptileEditor extends JFrame {
 		
 		//Layout widgets and drop to docking station
 		SplitDockGrid grid = new SplitDockGrid();
-		grid.addDockable(0, 0, 1, 2, projectExplorerView);
+		grid.addDockable(0, 0, 1, 1, projectExplorerView);
 		grid.addDockable(0, 1, 1, 1, layerManagerView);
 		grid.addVerticalDivider(1, 0, 1);
-		grid.addDockable(2, 0, 1, 2, editorStationView);
-		grid.addDockable(2, 1, 1, 1, mapPaletteView);
-		grid.addVerticalDivider(3, 0, 1);
-		grid.addDockable(4, 0, 1, 1, miniMapView);
-		grid.addDockable(4, 1, 1, 1, cellInspectorView);
-		grid.addDockable(4, 1, 1, 1, objectInspectorView);
-		grid.addDockable(4, 2, 1, 1, historyExplorerView);
+		grid.addDockable(2, 0, 2, 2, editorStationView);
+		grid.addDockable(2, 1, 2, 1, mapPaletteView);
+		grid.addVerticalDivider(4, 0, 1);
+		grid.addDockable(5, 0, 1, 1, miniMapView);
+		grid.addDockable(5, 1, 1, 1, cellInspectorView);
+		grid.addDockable(5, 1, 1, 1, objectInspectorView);
+		grid.addDockable(5, 2, 1, 1, historyExplorerView);
 		dockStation.dropTree(grid.toTree());
 		
 	}
