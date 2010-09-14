@@ -1,5 +1,5 @@
 package reptile.core;
 
-public class ObjectLayer {
+public class ObjectLayer extends Layer {
 
 }

@@ -1,5 +1,5 @@
 package reptile.core;
 
-public class Layer {
+public abstract class Layer {
 
 }

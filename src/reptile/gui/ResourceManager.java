@@ -1,7 +1,13 @@
 package reptile.gui;
 
+import java.awt.Image;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  * A singleton class for managing resources.
@@ -32,7 +38,7 @@ public class ResourceManager {
 	public void setLocale(Locale locale) {
 		//TODO: get baseName from config
 		resourceBundle = ResourceBundle.getBundle(
-				getClass().getPackage().getName() + "resources.lang", locale);
+				getClass().getPackage().getName() + ".resources.lang", locale);
 	}
 	
 	/**
@@ -48,17 +54,49 @@ public class ResourceManager {
 	 * Get an image from the resources directory
 	 * @param filename The filename of the image
 	 * @return The image loaded from the file
+	 * @throws IOException 
 	 */
-	public String getImage(String filename) {
+	public Image getImage(String filename) throws IOException {
 		//TODO: do it (using config)
-		return null;
+		return ImageIO.read(
+				getClass().getResourceAsStream("resources/" + filename));
+	}
+	
+	/**
+	 * Get an icon from the icon directory as an ImageIcon
+	 * @param filename The filename of the icon in the icon directory
+	 * @return The icon requested
+	 * @throws IOException
+	 */
+	public Icon getIcon(String filename) throws IOException {
+		//TODO: path from config
+		return new ImageIcon(getImage("icons/" + filename));
 	}
 	
 	/**
 	 * Get singleton ResourceManager
 	 * @return The ResourceManager singleton
 	 */
-	public static ResourceManager getResourceManager() {
+	public static synchronized ResourceManager getResourceManager() {
 		return resourceManager;
 	}
+	
+	/**
+	 * Synonym for getResourceManagere
+	 * Get singleton ResourceManager
+	 * @return The ResourceManager singleton
+	 */
+	public static synchronized ResourceManager get() {
+		return getResourceManager();
+	}
+	
+	/**
+	 * Override clone method to prevent cloning and throw
+	 * CloneNotSupportedException
+	 * @throws CloneNotSupportedException
+	 */
+	public Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException();
+	}
+
 }

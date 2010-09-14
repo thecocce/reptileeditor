@@ -1,12 +1,12 @@
 package reptile.gui.widget;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
 public class MapComponent extends JComponent implements KeyListener {
@@ -16,6 +16,8 @@ public class MapComponent extends JComponent implements KeyListener {
 	
 	/** Constructor for objects of class MapComponent */
 	public MapComponent(){
+		setPreferredSize(new Dimension(400, 280));
+		setMinimumSize(new Dimension(400, 280));
 		
 		selectedTile = new Point(0,0);
 				
