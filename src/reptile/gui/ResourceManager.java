@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
  */
 
 public class ResourceManager {
-	//Member variables
+	//Instance Variables
 	private ResourceBundle resourceBundle;
 	
 	//Instantiate singleton
