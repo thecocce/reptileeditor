@@ -6,9 +6,12 @@ import java.awt.Dimension;
 import java.io.IOException;
 
 import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
@@ -25,8 +28,10 @@ import reptile.gui.widget.ProjectExplorer;
 import bibliothek.extension.gui.dock.station.split.DockFrontendSizeManager;
 import bibliothek.extension.gui.dock.station.split.LbSplitLayoutManager;
 import bibliothek.extension.gui.dock.station.split.SizeManager;
+import bibliothek.extension.gui.dock.theme.BubbleTheme;
 import bibliothek.extension.gui.dock.theme.EclipseTheme;
 import bibliothek.extension.gui.dock.theme.FlatTheme;
+import bibliothek.extension.gui.dock.theme.SmoothTheme;
 import bibliothek.gui.DockFrontend;
 import bibliothek.gui.dock.DefaultDockable;
 import bibliothek.gui.dock.SplitDockStation;
@@ -100,10 +105,7 @@ public class ReptileEditor extends JFrame {
 		getContentPane().setLayout(new BorderLayout());
 		
 		//Create and add toolbar
-		JToolBar toolBar = new JToolBar();
-		toolBar.add(new JLabel("Toolbar"));
-		toolBar.setPreferredSize(new Dimension(500, 40));
-		toolBar.setMinimumSize(new Dimension(40, 40));
+		toolBar = new ToolBar();
 		add(toolBar, BorderLayout.PAGE_START);
 		
 		//Create and add status bar
@@ -112,17 +114,24 @@ public class ReptileEditor extends JFrame {
 		statusBar.add(new JButton("Status Bar"));
 		add(statusBar, BorderLayout.PAGE_END);
 		
+		//Create and add container panel
+		JPanel container = new JPanel();
+		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+		container.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0, 0), 4));
+		add(container);
+		
 		//Create and add docking station
 		DockFrontend dockFrontend = new DockFrontend(this);
 		SplitDockStation dockStation = new SplitDockStation();
 		DockFrontendSizeManager sizeManager = new DockFrontendSizeManager();
+		//TODO: Doesn't do correct resizing?
 		sizeManager.setFrontend(dockFrontend);
 		dockStation.setSplitLayoutManager(new LbSplitLayoutManager(sizeManager));
 		dockFrontend.addRoot("root", dockStation);
-		BasicTheme theme = new FlatTheme();
+		BasicTheme theme = new SmoothTheme();
 		dockStation.getController().setTheme(theme);
 		dockFrontend.setDefaultHideable(true);
-		add(dockStation);
+		container.add(dockStation);
 		
 		//Create widgets and views
 		projectExplorer = new ProjectExplorer();

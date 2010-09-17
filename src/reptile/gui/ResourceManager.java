@@ -68,9 +68,16 @@ public class ResourceManager {
 	 * @return The icon requested
 	 * @throws IOException
 	 */
-	public Icon getIcon(String filename) throws IOException {
+	public Icon getIcon(String filename) {
 		//TODO: path from config
-		return new ImageIcon(getImage("icons/" + filename));
+		String filePath = "icons/" + filename;
+		try {
+			return new ImageIcon(getImage(filePath));
+		} catch (IOException e) {
+			System.out.println("Failed to load icon: " + filePath);
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**

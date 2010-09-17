@@ -10,6 +10,9 @@ package reptile.core.gameobject;
 public class GameObject {
 	
 	private ObjectType type;
-	private 
+	
+	public GameObject(ObjectType type) {
+		this.type = type;
+	}
 	
 }

@@ -1,5 +1,7 @@
 package reptile.core;
 
+import java.util.Vector;
+
 import reptile.core.gameobject.ObjectType;
 
 /**
