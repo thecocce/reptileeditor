@@ -54,7 +54,7 @@ public class CustomTheme extends FlatTheme {
 				BasicDockableDisplayer displayer = new BasicDockableDisplayer(station, dockable, title, location){
 					@Override
 					protected Border getDefaultBorder(){
-						return new RoundedBorder(new Color(0, 0, 0, 0), new Color(0,0,0,70), null, 2, 1);
+						return new RoundedBorder(new Color(0, 0, 0, 0), new Color(0, 0, 0, 90), null, 2, 1);
 					}
 				};
 				return displayer;
@@ -79,7 +79,7 @@ public class CustomTheme extends FlatTheme {
 		
 		GenericFontModifier fontMod = new GenericFontModifier();
 		fontMod.setSizeDelta(false);
-		fontMod.setSize(10);
+		fontMod.setSize(11);
 		controller.getFonts().put(Priority.THEME, DockFont.ID_TITLE_ACTIVE, fontMod);
 		controller.getFonts().put(Priority.THEME, DockFont.ID_TITLE_INACTIVE, fontMod);
 		controller.getFonts().put(Priority.THEME, DockFont.ID_TAB_FOCUSED, fontMod);
