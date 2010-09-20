@@ -2,10 +2,7 @@ package reptile.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
-import java.nio.channels.FileChannel.MapMode;
 
-import javax.swing.Icon;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,7 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 /**
- * The default menu bar
+ * The default menu bars
  * 
  * @author Joe Williamson <huruey@gmail.com>
  */

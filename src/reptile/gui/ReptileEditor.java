@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
 
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -15,29 +14,25 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
+import reptile.gui.theme.CustomTheme;
 import reptile.gui.widget.CellInspector;
 import reptile.gui.widget.EditorStation;
 import reptile.gui.widget.HistoryExplorer;
 import reptile.gui.widget.LayerManager;
-import reptile.gui.widget.MapComponent;
 import reptile.gui.widget.MapPalette;
 import reptile.gui.widget.MiniMap;
 import reptile.gui.widget.ObjectInspector;
 import reptile.gui.widget.ProjectExplorer;
-
 import bibliothek.extension.gui.dock.station.split.DockFrontendSizeManager;
 import bibliothek.extension.gui.dock.station.split.LbSplitLayoutManager;
-import bibliothek.extension.gui.dock.station.split.SizeManager;
-import bibliothek.extension.gui.dock.theme.BubbleTheme;
-import bibliothek.extension.gui.dock.theme.EclipseTheme;
 import bibliothek.extension.gui.dock.theme.FlatTheme;
-import bibliothek.extension.gui.dock.theme.SmoothTheme;
 import bibliothek.gui.DockFrontend;
 import bibliothek.gui.dock.DefaultDockable;
 import bibliothek.gui.dock.SplitDockStation;
 import bibliothek.gui.dock.station.split.SplitDockGrid;
+import bibliothek.gui.dock.station.stack.tab.layouting.TabPlacement;
 import bibliothek.gui.dock.themes.BasicTheme;
-import bibliothek.gui.dock.themes.ThemeFactory;
+import bibliothek.gui.dock.themes.NoStackTheme;
 
 
 /**
@@ -123,12 +118,13 @@ public class ReptileEditor extends JFrame {
 		//Create and add docking station
 		DockFrontend dockFrontend = new DockFrontend(this);
 		SplitDockStation dockStation = new SplitDockStation();
+		dockStation.setDividerSize(4);
 		DockFrontendSizeManager sizeManager = new DockFrontendSizeManager();
 		//TODO: Doesn't do correct resizing?
 		sizeManager.setFrontend(dockFrontend);
 		dockStation.setSplitLayoutManager(new LbSplitLayoutManager(sizeManager));
 		dockFrontend.addRoot("root", dockStation);
-		BasicTheme theme = new SmoothTheme();
+		NoStackTheme theme = new NoStackTheme(new CustomTheme());
 		dockStation.getController().setTheme(theme);
 		dockFrontend.setDefaultHideable(true);
 		container.add(dockStation);

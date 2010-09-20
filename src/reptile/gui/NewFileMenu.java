@@ -1,8 +1,7 @@
 package reptile.gui;
 
-import javax.swing.JMenuItem;
 import javax.swing.JMenu;
-import javax.swing.JPopupMenu;
+import javax.swing.JMenuItem;
 
 /**
  * Menu for creating a new file
@@ -13,12 +12,12 @@ import javax.swing.JPopupMenu;
 public class NewFileMenu extends JMenu {
 	
 	private JMenuItem newProjectButton,
-					newMapButton,
-					newTileSetButton,
-					newObjectLibraryButton,
-					newObjectTypeButton,
-					newBrushLibraryButton,
-					newBrushButton;
+					  newMapButton,
+					  newTileSetButton,
+					  newObjectLibraryButton,
+					  newObjectTypeButton,
+					  newBrushLibraryButton,
+					  newBrushButton;
 	
 	public NewFileMenu() {
 		setText("New");

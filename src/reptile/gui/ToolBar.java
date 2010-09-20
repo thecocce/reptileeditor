@@ -2,8 +2,6 @@ package reptile.gui;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
