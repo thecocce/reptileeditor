@@ -1,11 +1,13 @@
 package reptile.gui.theme;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
@@ -23,6 +25,9 @@ import bibliothek.gui.dock.action.DropDownAction;
 import bibliothek.gui.dock.action.view.ActionViewConverter;
 import bibliothek.gui.dock.action.view.ViewGenerator;
 import bibliothek.gui.dock.action.view.ViewTarget;
+import bibliothek.gui.dock.dockable.DockableMovingImageFactory;
+import bibliothek.gui.dock.dockable.MovingImage;
+import bibliothek.gui.dock.dockable.TrueMovingImage;
 import bibliothek.gui.dock.station.stack.tab.layouting.TabPlacement;
 import bibliothek.gui.dock.themes.BasicTheme;
 import bibliothek.gui.dock.themes.basic.BasicDisplayerFactory;
@@ -41,6 +46,8 @@ import bibliothek.gui.dock.util.font.FontModifier;
 import bibliothek.gui.dock.util.font.GenericFontModifier;
 import bibliothek.gui.dock.station.DockableDisplayer.Location;
 import bibliothek.gui.dock.title.DockTitle;
+import bibliothek.gui.dock.title.DockTitleVersion;
+import bibliothek.gui.dock.title.UpdatingTitleMovingImage;
 
 public class CustomTheme extends FlatTheme {
 	

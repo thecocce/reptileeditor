@@ -69,6 +69,8 @@ public class ReptileEditor extends JFrame {
 							editorStationView,
 							miniMapView;
 	
+	//
+	
 	/**
 	 * Constructor for objects of type ReptileEditor
 	 */
